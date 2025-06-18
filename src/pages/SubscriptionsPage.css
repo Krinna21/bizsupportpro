@@ -1,88 +1,114 @@
 .subs-page {
-  max-width: 620px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 2.5rem 1rem 2rem 1rem;
 }
 
 .subs-page__title {
-  font-size: 1.45rem;
-  font-weight: 700;
+  font-size: 1.65rem;
+  font-weight: 800;
   color: #6366f1;
-  margin-bottom: 1.3rem;
+  margin-bottom: 2.3rem;
+  text-align: center;
+  letter-spacing: -0.5px;
 }
 
-.subs-page__list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.3rem;
+.subs-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
 }
 
-.subs-page__item {
+.subs-page__card {
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 18px rgba(99, 102, 241, 0.07), 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 2.1rem 1.2rem 1.3rem 1.2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.03);
-}
-
-.subs-page__plan {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #363636;
-  margin: 0;
-}
-
-.subs-page__details {
-  display: flex;
-  gap: 1.2rem;
   align-items: center;
+  min-height: 200px;
+  transition: box-shadow 0.18s, transform 0.14s;
+  outline: none;
 }
 
-.subs-page__price {
+.subs-page__card:focus,
+.subs-page__card:hover {
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.13), 0 6px 20px rgba(80, 62, 242, 0.07);
+  transform: scale(1.025) translateY(-2px);
+}
+
+.subs-page__card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.1rem;
+  gap: 0.4rem;
+}
+
+.subs-page__plan-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #363636;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.15rem;
+}
+
+.subs-page__card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.subs-page__plan-price {
   color: #475569;
   font-size: 1.04rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
 }
 
 .subs-page__status {
-  padding: 0.14em 1em;
-  border-radius: 6px;
-  font-size: 0.97rem;
-  font-weight: 600;
+  display: inline-block;
+  font-size: 0.99rem;
+  font-weight: 700;
+  border-radius: 22px;
+  padding: 0.26em 1.15em;
+  text-transform: capitalize;
   background: #eef2ff;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1.5px 4px rgba(99, 102, 241, 0.04);
 }
 
 .subs-page__status--active {
-  color: #059669;
   background: #d1fae5;
+  color: #059669;
 }
 
 .subs-page__status--inactive {
-  color: #d97706;
   background: #fef3c7;
+  color: #d97706;
 }
 
 .subs-page__showmore {
-  margin-top: 1rem;
-  background: #6366f1;
+  margin: 2.2rem auto 0 auto;
+  display: block;
+  background: linear-gradient(90deg, #6366f1 60%, #8b5cf6 100%);
   color: #fff;
   border: none;
   border-radius: 7px;
   font-size: 1rem;
   font-weight: 600;
-  padding: 0.7em 2em;
+  padding: 0.75em 2.2em;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.22s;
+  box-shadow: 0 2px 18px rgba(99, 102, 241, 0.07);
 }
 
 .subs-page__showmore:hover,
 .subs-page__showmore:focus {
   background: #4f46e5;
+  outline: none;
 }
 
 .subs-page__error {
@@ -95,4 +121,16 @@
   color: #888;
   text-align: center;
   font-size: 1.07rem;
+  padding: 2.5rem 0 0 0;
+}
+
+@media (max-width: 600px) {
+  .subs-page__grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .subs-page {
+    padding: 1rem 0.3rem 1.6rem 0.3rem;
+  }
 }

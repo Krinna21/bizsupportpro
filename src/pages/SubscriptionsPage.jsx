@@ -5,14 +5,14 @@ import "./SubscriptionsPage.css";
 
 function SubscriptionsPage() {
   const [subscriptions, setSubscriptions] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(4);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     setLoading(true);
     fetchSubscriptions()
-      .then((data) => setSubscriptions(data))
+      .then(setSubscriptions)
       .catch(() =>
         setError(
           "Sorry, something went wrong during the request. Please try again later."
@@ -22,32 +22,40 @@ function SubscriptionsPage() {
   }, []);
 
   if (loading) return <Preloader />;
-  if (error) return <div className="subs-page__error">{error}</div>;
-  if (subscriptions.length === 0)
+  if (error)   return <div className="subs-page__error">{error}</div>;
+  if (!subscriptions.length)
     return <div className="subs-page__empty">Nothing found.</div>;
 
-  const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 3);
-  };
+  const handleShowMore = () => setVisibleCount((prev) => prev + 4);
 
   return (
-    <section className="subs-page">
-      <h2 className="subs-page__title">Available Subscriptions</h2>
-      <ul className="subs-page__list">
+    <section className="subs-page" aria-label="Subscriptions">
+      <h2 className="subs-page__title">Your Subscriptions</h2>
+
+      <div className="subs-page__grid">
         {subscriptions.slice(0, visibleCount).map((sub) => (
-          <li key={sub.id} className="subs-page__item">
-            <h3 className="subs-page__plan">{sub.name}</h3>
-            <div className="subs-page__details">
-              <span className="subs-page__price">{sub.price}</span>
+          <div
+            key={sub.id}
+            className="subs-page__card"
+            tabIndex="0"
+            aria-label={`Plan: ${sub.name}, ${sub.status}`}
+          >
+            <header className="subs-page__card-header">
+              <span className="subs-page__plan-name">{sub.name}</span>
+            </header>
+
+            <div className="subs-page__card-body">
+              <span className="subs-page__plan-price">{sub.price}</span>
               <span
                 className={`subs-page__status subs-page__status--${sub.status}`}
               >
                 {sub.status === "active" ? "Active" : "Inactive"}
               </span>
             </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
+
       {visibleCount < subscriptions.length && (
         <button
           className="subs-page__showmore"

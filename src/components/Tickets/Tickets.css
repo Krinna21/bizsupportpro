@@ -1,79 +1,134 @@
-.tickets {
+.tickets__board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.2rem;
   margin-top: 2rem;
-}
-
-.tickets__list {
-  list-style: none;
+  margin-bottom: 1rem;
   padding: 0;
-  margin: 0;
 }
 
-.tickets__item {
+.tickets__card {
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-left: 5px solid #6366f1;
-  border-radius: 8px;
-  padding: 1.2rem 1.1rem 1rem 1.3rem;
+  border-radius: 22px;
+  box-shadow: 0 2px 18px rgba(99,102,241,0.11), 0 1.5px 3px rgba(0,0,0,0.07);
+  padding: 2.1rem 1.3rem 1.5rem 1.3rem;
   display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  position: relative;
+  transition: box-shadow 0.18s, transform 0.15s;
+  outline: none;
+  animation: tickets-pop 0.75s cubic-bezier(.25,1.15,.4,1.03);
+}
+@keyframes tickets-pop {
+  from { opacity: 0; transform: scale(0.96) translateY(16px);}
+  to { opacity: 1; transform: scale(1) translateY(0);}
+}
+.tickets__card--new {
+  box-shadow: 0 8px 30px rgba(99,102,241,0.25), 0 2.5px 8px rgba(0,0,0,0.07);
+  border: 2.5px solid #6366f1;
+}
+
+.tickets__card:focus,
+.tickets__card:hover {
+  box-shadow: 0 8px 32px rgba(99,102,241,0.19), 0 2.5px 8px rgba(0,0,0,0.09);
+  transform: scale(1.03) translateY(-2px);
+}
+
+.tickets__card-header {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.03);
-  transition: transform 0.16s;
+  margin-bottom: 1.1rem;
 }
 
-.tickets__item:hover {
-  transform: translateY(-2px) scale(1.01);
+.tickets__user {
+  display: flex;
+  align-items: center;
+  gap: 0.63rem;
 }
 
-.tickets__info {
-  flex: 1 1 auto;
+.tickets__avatar {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  background: #f3f4f6;
 }
 
-.tickets__title {
-  font-size: 1.13rem;
+.tickets__username {
+  font-size: 0.99rem;
   font-weight: 600;
-  margin: 0 0 0.22em 0;
-  color: #363636;
-}
-
-.tickets__desc {
-  margin: 0 0 0.6em 0;
-  color: #555;
+  color: #6366f1;
 }
 
 .tickets__status {
-  font-size: 0.98rem;
-  color: #6366f1;
-  font-weight: 500;
-  padding: 0.2em 0.8em 0.2em 0;
-  border-radius: 4px;
+  display: inline-block;
+  font-size: 0.97rem;
+  font-weight: 700;
+  border-radius: 22px;
+  padding: 0.36em 1.25em;
+  text-transform: capitalize;
+  background: #eef2ff;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1.5px 4px rgba(99,102,241,0.05);
+  margin-left: 0.5rem;
+}
+.tickets__status--open {
+  background: #d1fae5;
+  color: #059669;
+}
+.tickets__status--progress {
+  background: #fef3c7;
+  color: #d97706;
+}
+.tickets__status--closed {
+  background: #fee2e2;
+  color: #dc2626;
 }
 
-.tickets__status--open { color: #059669; }
-.tickets__status--in-progress { color: #d97706; }
-.tickets__status--closed { color: #dc2626; }
+.tickets__title {
+  margin: 0 0 0.6em 0;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #22223b;
+}
+
+.tickets__desc {
+  margin: 0 0 1.6em 0;
+  color: #5e5e5e;
+  font-size: 1.01rem;
+  flex: 1 1 auto;
+}
 
 .tickets__delete {
-  background: #fff;
-  border: 1.2px solid #dc2626;
+  align-self: flex-end;
+  background: transparent;
+  border: none;
   color: #dc2626;
-  font-size: 1rem;
   font-weight: 600;
-  padding: 0.42em 1em;
-  border-radius: 7px;
+  font-size: 1rem;
   cursor: pointer;
-  min-width: 92px;
-  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  border-radius: 7px;
+  padding: 0.3em 0.7em;
+  transition: background 0.13s, color 0.13s;
+  margin-top: 0.6em;
+}
+.tickets__delete:focus,
+.tickets__delete:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+  outline: none;
 }
 
-.tickets__delete:hover,
-.tickets__delete:focus {
-  background: #dc2626;
-  color: #fff;
-  border-color: #b91c1c;
-  outline: none;
+.tickets__icon {
+  display: inline-block;
+  vertical-align: middle;
+  color: #dc2626;
 }
 
 .tickets__error {
@@ -86,4 +141,5 @@
   color: #888;
   text-align: center;
   font-size: 1.07rem;
+  padding: 2.5rem 0 0 0;
 }
