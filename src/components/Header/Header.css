@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+}
+
+.header__brand {
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.header__btn {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.5em 1.1em;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.header__btn:hover,
+.header__btn:focus {
+  background: #fff;
+  color: #6366f1;
+  outline: none;
+}
+
+.header__btn--register {
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+.header__btn--register:hover,
+.header__btn--register:focus {
+  background: #ffd700;
+  color: #363636;
+}

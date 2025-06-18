@@ -1,0 +1,14 @@
+.footer {
+  margin-top: auto;
+  padding: 1.25rem 0;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 1rem;
+  color: #6b7280;
+  letter-spacing: 0.03em;
+}
+
+.footer__copyright {
+  display: block;
+}
