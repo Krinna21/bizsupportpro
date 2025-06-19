@@ -1,5 +1,4 @@
 export const authorize = (email, password) => {
-  // Demo: always returns a "token"
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({ token: "demo-token-12345" });
@@ -8,7 +7,6 @@ export const authorize = (email, password) => {
 };
 
 export const checkToken = (token) => {
-  // Demo: always returns fake user
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
@@ -23,7 +21,6 @@ export const checkToken = (token) => {
 };
 
 export const register = (name, email, password) => {
-  // Demo: always resolves with new user data
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
@@ -36,3 +33,5 @@ export const register = (name, email, password) => {
     }, 350);
   });
 };
+
+//DEMO : Returns fake 

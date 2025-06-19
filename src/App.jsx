@@ -12,45 +12,42 @@ import AboutPage from "./pages/AboutPage";
 import "./App.css";
 
 function App() {
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-
-  const [modal, setModal] = useState(null); 
+  const [modal, setModal] = useState(null);
 
   const handleLoginOpen = () => setModal("login");
   const handleRegisterOpen = () => setModal("register");
   const handleModalClose = () => setModal(null);
 
-
   return (
     <Router>
       <div className="app">
         <Header onLoginClick={handleLoginOpen} onRegisterClick={handleRegisterOpen} />
-           {modal === "login" && (
-        <LoginModal
-          onClose={handleModalClose}
-          onSwitch={() => setModal("register")}
-        />
-)}
-{modal === "register" && (
-  <RegisterModal
-    onClose={handleModalClose}
-    onSwitch={() => setModal("login")}
-  />
-)}
+
+        {modal === "login" && (
+          <LoginModal
+            onClose={handleModalClose}
+            onSwitch={() => setModal("register")}
+          />
+        )}
+        {modal === "register" && (
+          <RegisterModal
+            onClose={handleModalClose}
+            onSwitch={() => setModal("login")}
+          />
+        )}
 
         <Navigation />
-
-        {isLoginOpen && <LoginModal onClose={() => setIsLoginOpen(false)} />}
-        {isRegisterOpen && (
-          <RegisterModal onClose={() => setIsRegisterOpen(false)} />
-        )}
 
         <main className="app__main">
           <Routes>
             <Route
               path="/"
-              element={<Main onRegisterClick={() => setIsRegisterOpen(true)} />}
+              element={
+                <Main
+                  onLoginClick={handleLoginOpen}
+                  onRegisterClick={handleRegisterOpen}
+                />
+              }
             />
             <Route path="/tickets" element={<TicketsPage />} />
             <Route path="/subscriptions" element={<SubscriptionsPage />} />

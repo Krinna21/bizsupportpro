@@ -124,6 +124,67 @@
   padding: 2.5rem 0 0 0;
 }
 
+.subs-page__carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  margin-bottom: 1.7rem;
+}
+
+.subs-page__carousel-arrow {
+  font-size: 2.3rem;
+  color: #6366f1;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  width: 2.7rem;
+  height: 2.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.subs-page__carousel-arrow:disabled {
+  color: #d1d5db;
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.subs-page__carousel-view {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+}
+
+.subs-page__feature-list {
+  list-style: none;
+  padding: 0.7em 0 0 0;
+  margin: 0;
+  text-align: left;
+}
+
+.subs-page__feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+  font-size: 0.98em;
+  color: #454c5c;
+  margin-bottom: 0.13em;
+}
+
+.subs-page__check {
+  color: #10b981;
+  font-size: 1.11em;
+  font-weight: bold;
+  margin-right: 0.2em;
+}
+
+
 @media (max-width: 600px) {
   .subs-page__grid {
     grid-template-columns: 1fr;

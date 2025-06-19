@@ -10,7 +10,7 @@ import step2 from "../../assets/step-2.svg";
 import step3 from "../../assets/step-3.svg";
 import step4 from "../../assets/step-4.svg";
 
-function Main({ onRegisterClick }) {
+function Main({ onLoginClick, onRegisterClick }) {
   return (
     <main>
       <section className="main__section main__hero">

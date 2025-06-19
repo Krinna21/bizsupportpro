@@ -54,3 +54,13 @@
 .create-ticket__btn:focus {
   background: #4f46e5;
 }
+
+.create-ticket__input[type="date"] {
+  color: #4b5563;
+}
+
+.create-ticket__input--error,
+.create-ticket__textarea.create-ticket__input--error {
+  border-color: #dc2626 !important;
+  background: #fff6f6;
+}

@@ -18,13 +18,13 @@ export function fetchSubscriptions() {
           id: "sub_003",
           name: "Premium Plan",
           price: "$29.99/month",
-          status: "active",
+          status: "inactive",
         },
         {
           id: "sub_004",
           name: "Enterprise",
           price: "$99.99/month",
-          status: "active",
+          status: "inactive",
         },
       ]);
     }, 900);
