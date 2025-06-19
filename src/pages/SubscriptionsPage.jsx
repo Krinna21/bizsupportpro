@@ -1,33 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { fetchSubscriptions } from "../utils/thirdPartyApi";
 import Preloader from "../components/Preloader/Preloader";
+import { FEATURES } from "../utils/constants";
 import "./SubscriptionsPage.css";
-
-const FEATURE_MAP = {
-  "Basic Plan": [
-    "Ticket support",
-    "Email notifications",
-    "Basic analytics"
-  ],
-  "Pro Plan": [
-    "All Basic features",
-    "Priority support",
-    "Team management",
-    "Custom integrations"
-  ],
-  "Premium Plan": [
-    "All Pro features",
-    "Unlimited tickets",
-    "Dedicated manager",
-    "SLA 24h response"
-  ],
-  "Enterprise": [
-    "All Premium features",
-    "White label",
-    "Advanced reporting",
-    "Custom onboarding"
-  ]
-};
 
 function SubscriptionsPage() {
   const [subscriptions, setSubscriptions] = useState([]);
@@ -41,7 +16,7 @@ function SubscriptionsPage() {
       .then((data) => {
         const withFeatures = data.map(sub => ({
           ...sub,
-          features: FEATURE_MAP[sub.name] || []
+          features: FEATURES[sub.name] || []
         }));
         setSubscriptions(withFeatures);
       })
