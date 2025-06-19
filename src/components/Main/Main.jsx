@@ -1,7 +1,6 @@
 import React from "react";
 import "./Main.css";
 
-import heroImg from "../../assets/hero-image.svg";
 import featureTickets from "../../assets/feature-tickets.svg";
 import featureSubscriptions from "../../assets/feature-subscriptions.svg";
 import featureSecurity from "../../assets/feature-security.svg";
@@ -15,7 +14,7 @@ function Main({ onRegisterClick }) {
   return (
     <main>
       <section className="main__section main__hero">
-        <div className="main__container">
+        <div className="main__hero-container">
           <div className="main__hero-content">
             <h1 className="main__title" tabIndex="0">
               Run Your Business <span className="main__highlight">Smarter</span>
@@ -32,18 +31,36 @@ function Main({ onRegisterClick }) {
               Get Started Free
             </button>
           </div>
-          <img
-            src={heroImg}
-            alt="Team collaborating at laptops"
-            className="main__hero-img"
-            loading="lazy"
-          />
+        </div>
+      </section>
+
+      <section className="main__section main__how">
+        <div className="main__how-container">
+          <h2 className="main__how-title">How It Works</h2>
+          <ul className="main__how-steps" aria-label="How BizSupportPro works">
+            <li className="main__how-step">
+              <img src={step1} alt="Sign up" className="main__how-icon" />
+              <span className="main__how-caption">1. Register an account</span>
+            </li>
+            <li className="main__how-step">
+              <img src={step2} alt="Submit tickets" className="main__how-icon" />
+              <span className="main__how-caption">2. Submit or manage tickets</span>
+            </li>
+            <li className="main__how-step">
+              <img src={step3} alt="Track progress" className="main__how-icon" />
+              <span className="main__how-caption">3. Track progress/status</span>
+            </li>
+            <li className="main__how-step">
+              <img src={step4} alt="Monitor subscriptions" className="main__how-icon" />
+              <span className="main__how-caption">4. Monitor subscriptions</span>
+            </li>
+          </ul>
         </div>
       </section>
 
       <section className="main__section main__features">
-        <div className="main__container">
-          <h2 className="main__visually-hidden">Features</h2>
+        <div className="main__container-features">
+          <h2 className="main__title-feature">Features</h2>
           <ul className="main__features-list" aria-label="Key Features">
             <li className="main__feature-card" tabIndex="0">
               <img
@@ -89,32 +106,8 @@ function Main({ onRegisterClick }) {
         </div>
       </section>
 
-      <section className="main__section main__how">
-        <div className="main__container">
-          <h2 className="main__how-title">How It Works</h2>
-          <ul className="main__how-steps" aria-label="How BizSupportPro works">
-            <li className="main__how-step">
-              <img src={step1} alt="Sign up" className="main__how-icon" />
-              <span className="main__how-caption">1. Register an account</span>
-            </li>
-            <li className="main__how-step">
-              <img src={step2} alt="Submit tickets" className="main__how-icon" />
-              <span className="main__how-caption">2. Submit or manage tickets</span>
-            </li>
-            <li className="main__how-step">
-              <img src={step3} alt="Track progress" className="main__how-icon" />
-              <span className="main__how-caption">3. Track progress/status</span>
-            </li>
-            <li className="main__how-step">
-              <img src={step4} alt="Monitor subscriptions" className="main__how-icon" />
-              <span className="main__how-caption">4. Monitor subscriptions</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
       <section className="main__section main__cta-section">
-        <div className="main__container">
+        <div className="main__cta-container">
           <h3 className="main__cta-heading">Start managing support now</h3>
           <button
             className="main__cta main__cta--section"
