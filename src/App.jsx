@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
 import Main from "./components/Main/Main";
@@ -19,7 +19,7 @@ function App() {
   const handleModalClose = () => setModal(null);
 
   return (
-    <Router>
+    <BrowserRouter basename="/bizsupportpro">
       <div className="app">
         <Header onLoginClick={handleLoginOpen} onRegisterClick={handleRegisterOpen} />
 
@@ -57,7 +57,7 @@ function App() {
 
         <Footer />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
