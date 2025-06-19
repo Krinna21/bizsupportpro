@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: 'InterLocal';
+  src: url('./fonts/Inter.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
 
 :root {
   --color-bg: #f5f7fa;
@@ -17,7 +22,7 @@
 
 body {
   margin: 0;
-  font-family: var(--font-family);
+  font-family: 'InterLocal', 'Inter', system-ui, sans-serif;;
   background: var(--color-bg);
   color: var(--color-text);
   min-height: 100vh;

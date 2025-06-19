@@ -1,15 +1,17 @@
 {
   "name": "bizsupportpro-frontend",
-  "homepage": "https://github.com/Krinna21/bizsupportpro.git",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+   "homepage": "https://github.com/Krinna21/bizsupportpro.git",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "predeploy": "vite build",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
