@@ -1,3 +1,7 @@
+## Live Demo
+
+[https://krinna21.github.io/bizsupportpro/](https://krinna21.github.io/bizsupportpro/)
+
 # BizSupportPro
 
 Modern support ticket and subscription management for small businesses.
@@ -48,7 +52,8 @@ index.css
 
 ## Deployment
 
-This project is deployed on [YOUR_DEPLOYMENT_LINK_HERE](https://your-link.netlify.app)  
+This project is deployed on [https://krinna21.github.io/bizsupportpro/](https://krinna21.github.io/bizsupportpro/)
+
 Update this link with your actual Netlify or GitHub Pages URL.
 
 ## License
