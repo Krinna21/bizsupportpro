@@ -1,50 +1,44 @@
 import React, { useEffect, useRef } from "react";
 import "./ModalWithForm.css";
 
-function ModalWithForm({ title, children, onClose }) {
+function ModalWithForm({ title, children, onClose, animate = false }) {
   const modalRef = useRef(null);
 
-  // Trap focus inside the modal for accessibility
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    function onKeyDown(e) {
       if (e.key === "Escape") onClose();
       if (e.key === "Tab" && modalRef.current) {
-        const focusableEls = modalRef.current.querySelectorAll(
+        const els = modalRef.current.querySelectorAll(
           'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
         );
-        const firstEl = focusableEls[0];
-        const lastEl = focusableEls[focusableEls.length - 1];
-        if (!e.shiftKey && document.activeElement === lastEl) {
-          e.preventDefault();
-          firstEl.focus();
+        const first = els[0], last = els[els.length - 1];
+        if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault(); first.focus();
         }
-        if (e.shiftKey && document.activeElement === firstEl) {
-          e.preventDefault();
-          lastEl.focus();
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault(); last.focus();
         }
       }
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    // Focus first input on open
-    const timer = setTimeout(() => {
-      const input = modalRef.current?.querySelector("input, select, textarea, button");
-      input?.focus();
+    }
+    document.addEventListener("keydown", onKeyDown);
+    setTimeout(() => {
+      modalRef.current?.querySelector("input, select, textarea, button")?.focus();
     }, 10);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      clearTimeout(timer);
-    };
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
 
-  // Prevent closing on modal click, allow overlay click
   const handleOverlay = (e) => {
-    if (e.target.classList.contains("modal")) {
-      onClose();
-    }
+    if (e.target.classList.contains("modal")) onClose();
   };
 
   return (
-    <div className="modal" onClick={handleOverlay} role="dialog" aria-modal="true" ref={modalRef}>
+    <div
+      className={`modal${animate ? " modal--animate" : ""}`}
+      onClick={handleOverlay}
+      role="dialog"
+      aria-modal="true"
+      ref={modalRef}
+    >
       <div className="modal__container">
         <button className="modal__close" onClick={onClose} type="button" aria-label="Close modal">
           &times;

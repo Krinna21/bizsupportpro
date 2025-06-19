@@ -29,10 +29,10 @@ function AboutPage() {
       <div className="about__values">
         <h2 className="about__subtitle">Our Core Values</h2>
         <ul className="about__values-list">
-          <li>🌟 Customer-First Support</li>
-          <li>🔒 Security & Privacy by Default</li>
-          <li>⚡️ Fast, Reliable, and Modern</li>
-          <li>🦄 Simple, Delightful UX</li>
+          <li> Customer-First Support</li>
+          <li> Security & Privacy by Default</li>
+          <li> Fast, Reliable, and Modern</li>
+          <li> Simple, Delightful UX</li>
         </ul>
       </div>
     </section>

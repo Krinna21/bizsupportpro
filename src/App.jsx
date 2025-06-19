@@ -15,13 +15,30 @@ function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
+  const [modal, setModal] = useState(null); 
+
+  const handleLoginOpen = () => setModal("login");
+  const handleRegisterOpen = () => setModal("register");
+  const handleModalClose = () => setModal(null);
+
+
   return (
     <Router>
       <div className="app">
-        <Header
-          onLoginClick={() => setIsLoginOpen(true)}
-          onRegisterClick={() => setIsRegisterOpen(true)}
+        <Header onLoginClick={handleLoginOpen} onRegisterClick={handleRegisterOpen} />
+           {modal === "login" && (
+        <LoginModal
+          onClose={handleModalClose}
+          onSwitch={() => setModal("register")}
         />
+)}
+{modal === "register" && (
+  <RegisterModal
+    onClose={handleModalClose}
+    onSwitch={() => setModal("login")}
+  />
+)}
+
         <Navigation />
 
         {isLoginOpen && <LoginModal onClose={() => setIsLoginOpen(false)} />}
